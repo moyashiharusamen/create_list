@@ -25,41 +25,62 @@
         //     </table>`;
         const headText = ['No.', '名称', '提出日', '備考'];
         const headTextLength = headText.length;
-        const table = document.createElement('table');
-        const createThead = table.createTHead();
-        const insertRow = createThead.insertRow(0);
-        let tr;
+        const a = document.createElement('a');
 
-        for (let k = 0; k < headTextLength; k++) {
-            let cell = insertRow.insertCell(k);
-
-            cell.innerText = headText[k];
-        }
-
-        console.log(table);
+        // console.log(table);
 
         for (let i = 0; i < l; i++) {
+            const h2 = document.createElement('h2');
+            const table = document.createElement('table');
+            const thead = table.createTHead();
+            const tbody = table.createTBody();
+            const row = thead.insertRow(0);
+
+            for (let k = 0; k < headTextLength; k++) {
+                let cell = row.insertCell(k);
+
+                cell.innerText = headText[k];
+            }
+
             Object.keys(json[i]).forEach((e) => {
-                const h2 = document.createElement('h2');
                 const l2 = json[i][e].length;
 
                 h2.innerText = e;
                 list.appendChild(h2);
-                // h2.insertAdjacentHTML('afterend', table);
-                // console.log(h2.nextSibling);
                 list.insertBefore(table, h2.nextSibling);
 
                 for (let j = 0; j < l2; j++) {
-                    const content = json[i][e][j];
-                    
-                    tr =
-                        `<tr class="${content.status}">
-                        <td>${content.number}</td>
-                        <td><a href="${content.path}">${content.name}</a></td>
-                        <td>${content.date}</td>
-                        <td>${content.note}</td>
-                        </tr>
-                        `;
+                    const content = {
+                        num: json[i][e][j].number,
+                        name: json[i][e][j].name,
+                        note: json[i][e][j].note,
+                        status: json[i][e][j].status
+                    };
+                    const tbodyRow = tbody.insertRow(0);
+
+                    tbodyRow.classList = content.status;
+
+                    Object.keys(content).forEach((e, i) => {
+                        let cell = tbodyRow.insertCell(i);
+
+                        cell.innerText = content[e];
+
+                        if (i === 1) {
+                            console.log(cell);
+                            cell.appendChild(a);
+                        }
+                    });
+
+                    console.log(table);
+
+                    // tr =
+                    //     `<tr class="${content.status}">
+                    //     <td>${content.number}</td>
+                    //     <td><a href="${content.path}">${content.name}</a></td>
+                    //     <td>${content.date}</td>
+                    //     <td>${content.note}</td>
+                    //     </tr>
+                    //     `;
                 }
             })
         }
