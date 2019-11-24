@@ -2,15 +2,15 @@
     {
         "トップページ": [
             {
-                "number": 1,
+                "number": 2,
                 "name": "top page",
-                "path": "path",
+                "path": "https://google.com",
                 "date": "20191123",
                 "note": "note",
                 "status": "old"
             },
             {
-                "number": 2,
+                "number": 1,
                 "name": "name",
                 "path": "path",
                 "date": "20191124",
@@ -23,9 +23,9 @@
     {
         "ヘッダー・フッター": [
             {
-                "number": 3,
+                "number": 1,
                 "name": "header and footer",
-                "path": "path",
+                "path": "https://google.com",
                 "date": "20191125",
                 "note": "note",
                 "status": "progress"
