@@ -4,10 +4,10 @@
     fetch(jsonPath)
         .then((responce) => responce.json())
         .then((json) => {
-            hoge(json);
+            createContents(json);
         });
 
-    const hoge = (json) => {
+    const createContents = (json) => {
         const l = json.length;
         const headText = ['No.', '名称', '提出日', '備考'];
         const headTextLength = headText.length;
