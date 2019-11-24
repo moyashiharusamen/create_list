@@ -64,5 +64,12 @@
                 })
             }
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            const errorElem = document.createElement('div');
+            errorElem.classList = 'error';
+            errorElem.innerText = 'データファイルを読み込むことができませんでした';
+            list.appendChild(errorElem);
+
+            console.error(error);
+        });
 }
