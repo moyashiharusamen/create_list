@@ -1,5 +1,4 @@
 {
-    const main = document.getElementById('main');
     const jsonPath = '../data/list.json';
 
     fetch(jsonPath)
