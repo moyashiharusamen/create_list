@@ -53,7 +53,7 @@
                         if (e === 'name') {
                             cell.appendChild(a);
                             cell.children[0].setAttribute('href', path);
-                            cell.children[0].innerHTML = content.name;
+                            cell.children[0].innerText = content.name;
 
                             if (path.indexOf('http') !== -1) {
                                 cell.children[0].setAttribute('target', '_blank');
